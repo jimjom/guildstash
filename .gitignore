@@ -161,5 +161,10 @@ cython_debug/
 #.idea/
 =======
 *.env
+<<<<<<< HEAD
 
 >>>>>>> fd53b7e (Query guild website)
+=======
+*.pyc
+.vscode/*
+>>>>>>> 24785b5 (Update gitignore)
