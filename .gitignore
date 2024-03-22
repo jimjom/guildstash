@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -158,3 +159,20 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+=======
+*.env
+<<<<<<< HEAD
+
+>>>>>>> fd53b7e (Query guild website)
+=======
+*.pyc
+.vscode/*
+>>>>>>> 24785b5 (Update gitignore)
+src/guild/__pycache__/__init__.cpython-311.pyc
+src/guild/__pycache__/__init__.cpython-311.pyc
+src/guild/__pycache__/__init__.cpython-311.pyc
+src/guild/http/__pycache__/__init__.cpython-311.pyc
+src/guild/http/__pycache__/poeguildrequest.cpython-311.pyc
+src/guild/http/__pycache__/poewebrequest.cpython-311.pyc
+src/test/__pycache__/test_PoEGuildRequest.cpython-311.pyc
+src/test/__pycache__/test_PoEWebRequest.cpython-311.pyc
