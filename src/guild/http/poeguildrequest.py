@@ -2,6 +2,7 @@ import os
 import datetime
 import time
 import pickle
+import re
 from guild.http.poewebrequest import PoEWebRequest
 
 class PoEGuildRequest:
@@ -10,6 +11,8 @@ class PoEGuildRequest:
 
     __guild_url__ = f"https://www.pathofexile.com/api/guild/{__guild_id__}/stash/history"
 
+    __re__ = re.compile(r"^(\d+)x ")
+
     def getAllGuildHistory(self, league):
         startDate = None
         endDate = None
@@ -17,22 +20,40 @@ class PoEGuildRequest:
         searchAgain = True
 
         if(league == "Affliction"):
-            startDate = datetime.date(year=2023, month=12, day=8)
-            endDate = datetime.date(year=2024, month=3, day=21)
+            startDate = datetime.date(year=2024, month=3, day=20)
+            endDate = datetime.date(year=2023, month=12, day=8)
 
         if(league == "Necropolis"):
-            startDate = datetime.date(year=2024, month=3, day=27)
-            endDate = datetime.date(year=2024, month=7, day=27)
+            startDate = datetime.date(year=2024, month=7, day=27)
+            endDate = datetime.date(year=2024, month=3, day=27)
 
 
         start = (int(time.mktime(startDate.timetuple())))
         end = (int(time.mktime(endDate.timetuple())))
+
+        accounts = {}
 
         while(searchAgain):
 
             results = self.getGuildHistory(start, end, index)
             if(results == None): return
             
+            for line in results['entries']:
+                if line['league'] != league: continue
+                count = 1
+                id = line['id']
+                item = line['item']
+                action = line['action']
+                name = line['account']['name']
+                isStackedItem =  item.split('× ')
+                if len(isStackedItem) > 1:
+                    count = isStackedItem[0]
+                    item = isStackedItem[1]
+
+                if not name in accounts: accounts[name] = {}
+
+                accounts[name][id] = {'id': id, 'count': count, 'item': item}
+
             searchAgain = bool(results['truncated'])
             
             if searchAgain:

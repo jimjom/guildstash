@@ -168,3 +168,11 @@ cython_debug/
 *.pyc
 .vscode/*
 >>>>>>> 24785b5 (Update gitignore)
+src/guild/__pycache__/__init__.cpython-311.pyc
+src/guild/__pycache__/__init__.cpython-311.pyc
+src/guild/__pycache__/__init__.cpython-311.pyc
+src/guild/http/__pycache__/__init__.cpython-311.pyc
+src/guild/http/__pycache__/poeguildrequest.cpython-311.pyc
+src/guild/http/__pycache__/poewebrequest.cpython-311.pyc
+src/test/__pycache__/test_PoEGuildRequest.cpython-311.pyc
+src/test/__pycache__/test_PoEWebRequest.cpython-311.pyc
